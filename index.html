@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- fontawesome cdn -->
+  <script src="https://kit.fontawesome.com/5d28e6dccc.js" crossorigin="anonymous"></script>
+
+  <!-- scroll reveal js -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="jquery.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
+
+  <title>Raj Basel</title>
+</head>
+
+
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="f-c">
+    <img class="header-logo" src="res\head\LOGO-removebg-preview.png" alt="">
+    <img class="header-nav-toggle" src="res\head\icon2.jpg" alt="">
+    <ul class="header-contents nav-hide list-hide">
+      <li><a href="" class="active">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#work">WORK</a></li>
+      <li><a href="#education">EDUCATION</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </header>
+
+<script>
+/* NAVBAR TOGGLE */
+function navbarToggle() {
+    // console.log('nav toggle');
+    $('.header-contents').toggleClass('nav-show')
+    $('.header-contents').toggleClass('list-show')
+    $('.header-contents').toggleClass('nav-hide')
+    $('.header-contents').toggleClass('list-hide')
+    $('.header-nav-toggle').toggleClass('rotateDiv')
+}
+
+$('.header-nav-toggle').on('click', () => {
+    navbarToggle()
+})
+
+
+$('main').bind('click touchstart', () => {
+    if ($(".header-contents").hasClass('nav-show')) {
+        navbarToggle()
+    }
+})
+
+$('.header-contents li a').on('click', () => {
+    navbarToggle()
+    //
+})
+
+
+</script>
+
+
+
+
+  <main>
+    <!-- HOME PAGE -->
+
+    <div class="home f-c">
+      <div class="home-intro f-c">
+        <div class="home-intro-intro f-c">
+          <p class="hlw">Hello, I'm</p>
+          <h1>Raj Basel</h1>
+          <h2>__<span class="moving-text"></span></h2>
+        </div>
+        <a class="ame" href="res\cvpdf.jpg" download="cv.jpg">ME IN BRIEF</a>
+      </div>
+      <div class="home-pic f-c">
+        <img src="res\pics\home-pic.jpg" alt="">
+      </div>
+      <div class="home-social icons f-c">
+        <a href="https://www.instagram.com/livingasrb007/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/livingasrb007"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://youtube.com/@livingasrb007"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://twitter.com/livingasrb007"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+
+        <script>
+    //ANIMATED TEXT
+
+
+    const nameMoving = ['Student','Tutor','Astrophile']
+    let vari_i = 0
+    let vari_j = 0
+    let text = ''
+    let fore = true
+
+    setInterval(() => {
+      if (vari_j > nameMoving.length - 1) {
+        vari_j = 0
+      }
+      names = nameMoving[vari_j] +" "
+      // console.log('j',j)
+      if (fore) {
+        text += names[vari_i]
+        vari_i++
+        console.log(vari_i)
+        if (vari_i > names.length - 1) {
+          fore = false
+        }
+      } else if (!fore) {
+        text = text.substring(0, text.length - 1)
+        vari_i--
+        // console.log(i)
+        if (vari_i <= 0) {
+          fore = true
+          text = ''
+          vari_j++
+        }
+        // console.log(text)
+      }
+      $('.moving-text').text(text)
+    }, 150)
+  </script>
+
+    <!-- ABOUT -->
+
+    <div class="href-tag" id="about"></div>
+    <div class="about-title section-title">ABOUT</div>
+    <div class="about f-c">
+      <div class="about-left">
+        <p>"and did the twin flame bruise paint you blue?”</p>
+        <img src="res\pics\about-cover.jpg" alt="">
+      </div>
+      <div class="about-right f-c">
+        <p style="margin-top:2.4vw ;" class="about-right-intro">I’m a medical student at Manipal college of Medical
+          Sciences, pokhara. I’m from chitwan. I’m currently
+          22Year old. I’m also a part time Tutor at Entance Dose. I
+          teach physics. I love astronomy. I also like
+          photography..........</p>
+        <div class="about-right-interest f-c">
+          <img src="res/hobbies/read.jpg" alt="">
+          <img src="res/hobbies/nature.jpg" alt="">
+          <img src="res/hobbies/song.jpg" alt="">
+          <img src="res/hobbies/stargaze.jpg" alt="">
+        </div>
+        <p>Review my Resume &nbsp : &nbsp <span class="about-right-intro-resume"><a class="resume" href="res\cvpdf.jpg"
+              download="cv.jpg">RESUME</a></span></p>
+      </div>
+    </div>
+
+    <!-- WORK -->
+
+    <div class="href-tag" id="work"></div>
+    <div class="work-title section-title">WORK</div>
+
+    <div class="work f-c">
+      <div class="work-detail w-left f-c">
+        <div class="work-detail-info f-c">
+          <h1 style="">Entrance Dose</h1>
+          <h3 style="">Physics Tutor <span style="" class="work-date">2022-2023</span></h3>
+          <p style="">orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat.</p>
+        </div>
+        <div class="work-center f-c">
+          <div class="work-center-circle">
+            <img src="res\work\entrancedose.jpg" alt="">
+          </div>
+          <div class="work-center-line"></div>
+        </div>
+
+      </div>
+      <div class="work-detail w-right f-c">
+        <div class="work-center f-c">
+          <div class="work-center-circle">
+            <img src="res\work\seds.jpg" alt="">
+          </div>
+          <div class="work-center-line"></div>
+        </div>
+        <div class="work-detail-info f-c">
+          <h1 style="">SEDS-Nepal</h1>
+          <h3 style="">Generall Member <span style="" class="work-date">2022-2023</span></h3>
+          <p style="padding-bottom: 1vw;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat..</p>
+        </div>
+
+      </div>
+      <div class="work-detail w-left f-c">
+        <div class="work-detail-info f-c">
+          <h1 style="">Rotract Club of Manipal</h1>
+          <h3 style="">Rotract Club of Manipal <span style="" class="work-date">2022-2023</span></h3>
+          <p style="padding-bottom: 1vw;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat..</p>
+        </div>
+        <div class="work-center f-c">
+          <div class="work-center-circle">
+            <img src="res\work\rotract.jpg" alt="">
+          </div>
+          <div class="work-center-line"></div>
+        </div>
+
+      </div>
+      <div class="work-detail w-right f-c">
+        <div class="work-center f-c">
+          <div class="work-center-circle">
+            <img src="res\work\igp.jpg" alt="">
+          </div>
+          <div class="work-center-line"></div>
+        </div>
+        <div class="work-detail-info f-c">
+          <h1>IGPTech</h1>
+          <h3>Generall Member <span style="" class="work-date">2022-2023</span></h3>
+          <p style="padding-bottom: 1vw;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat..</p>
+        </div>
+
+      </div>
+      <div class="work-detail w-left f-c">
+        <div class="work-detail-info f-c">
+          <h1>Astronomy ENthusiast Nepal</h1>
+          <h3>Special Member <span style="" class="work-date">2022-2023</span></h3>
+          <p style="padding-bottom: 1vw;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="work-center f-c">
+          <div class="work-center-circle">
+            <img src="res\work\aen.jpg" alt="">
+          </div>
+          <div class="work-center-line bottom"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+
+    <div class="href-tag" id="education"></div>
+    <div class="education-title section-title">EDUCATION</div>
+    <div class="education f-c">
+
+      <div class="school">
+        <div class="school-icon circle icons">
+          <img src="res\edu\school.png" alt="">
+        </div>
+        <div class="school-info">
+          <div class="school-info-title f-c">
+            <p style="font-weight: 700;" class="school-title">Valmiki Siksha Sadan</p>
+            <p style="color:#C49696;" class="batch-date">class of 2018</p>
+          </div>
+          <p style="margin-top: 2vw;color: #C49696;" class="school-level">Basic Schooling</p>
+          <p style="color: #F04242;" class="school-experience">orem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat</p>
+        </div>
+      </div>
+
+      <div class="school">
+        <div class="school-icon circle icons">
+          <img src="res\edu\doctor.png" alt="">
+        </div>
+        <div class="school-info">
+          <div class="school-info-title f-c">
+            <p style="font-weight: 700;" class="school-title">Manipal College of Medical Sciences</p>
+            <p style="color:#C49696;" class="batch-date">class of 2027</p>
+          </div>
+          <p style="margin-top: 2vw;color: #C49696;" class="school-level">MBBS</p>
+          <p style="color: #F04242;" class="school-experience">orem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+
+    <div class="href-tag" id="gallery"></div>
+    <div class="gallery-title section-title">GALLERY</div>
+    <div class="gallery f-c">
+      <p class="gallery-quote">So long as the memory of certain beloved friends lives in my heart, I shall say that
+        life is good.</p>
+      <div class="gallery-gallery f-c">
+        <div class="gallery-img-container">
+          <img class="g-img" src="" alt="">
+        </div>
+        <div class="gallery-img-container">
+          <img class="g-img" src="" alt="">
+        </div>
+        <div class="gallery-img-container">
+          <img class="g-img" src="" alt="">
+        </div>
+        <div class="gallery-img-container">
+          <img class="g-img" src="" alt="">
+        </div>
+        <div class="gallery-img-container">
+          <img class="g-img" src="" alt="">
+        </div>
+        <div class="gallery-img-container">
+          <img class="g-img" src="" alt="">
+        </div>
+        <div class="gallery-img-container">
+          <img class="g-img" src="" alt="">
+        </div>
+        <div class="gallery-img-container">
+          <img class="g-img" src="" alt="">
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <script>
+      let gals = $('.g-img')
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function toggleImg() {
+        let rndNum = []
+        while (rndNum.length < 9) {
+          let randomIndex = getRandomInt(1, 13)
+          //console.log(rndNum) 
+          if (!rndNum.includes(randomIndex)) {
+            rndNum.push(randomIndex)
+          }
+        }
+
+        // console.log(rndNum) 
+        for (i = 0; i < 9; i++) {
+          $(gals[i]).attr('src', `res/gallery/gal${rndNum[i]}.jpg`)
+        }
+      }
+
+      setInterval(() => {
+        toggleImg()
+      }, 3000)
+    </script>
+
+    <!-- CONTACT -->
+
+    <div class="href-tag" id="contact"></div>
+    <div class="contact-title section-title">CONTACT</div>
+    <div class="contact f-c">
+
+      <form class="contact-form f-c" action="https://formsubmit.co/livingasrb007@email.com" method="post">
+        <input class="n" type="text" placeholder="your name" name="name" required>
+        <input class="e" type="text" placeholder="your email" name="email" required>
+        <textarea class="m" type="text" placeholder="Message" class="textarea f-c" name="message" required></textarea>
+        <input class="send f-c" type="button" value="send">
+      </form>
+
+      <div class="contact-right f-c">
+        <h1>FOLLOW ME</h1>
+        <div class="contact-social f-c ">
+          <p>LET US BE SOOCIAL</p>
+          <div class="contact-social-icons icons">
+            <a href="https://www.instagram.com/livingasrb007/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/livingasrb007"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://youtube.com/@livingasrb007"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://twitter.com/livingasrb007"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script>
+        & ('.send').on('click', () => {
+          $('.n').value('')
+          $('.e').value('')
+          $('.m').value('')
+            & ('.send').value('')
+          console.log($('.m').value())
+        })
+    </script> -->
+
+    <!-- FOOTER -->
+
+    <footer class="f-c">
+      <div class="foot-info">
+        <h1>Raj Basel</h1>
+        <address>Student, MBBS 2nd year<br>
+          Chitwan-27, Bagmati Province, Nepa<br>
+          +977-987654321</address>
+      </div>
+      <div class="foot-copyright f-c ">
+        <p>©2023 Raj Basel all rights reserved</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
