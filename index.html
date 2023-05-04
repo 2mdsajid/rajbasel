@@ -38,35 +38,35 @@
     </ul>
   </header>
 
-<script>
-/* NAVBAR TOGGLE */
-function navbarToggle() {
-    // console.log('nav toggle');
-    $('.header-contents').toggleClass('nav-show')
-    $('.header-contents').toggleClass('list-show')
-    $('.header-contents').toggleClass('nav-hide')
-    $('.header-contents').toggleClass('list-hide')
-    $('.header-nav-toggle').toggleClass('rotateDiv')
-}
-
-$('.header-nav-toggle').on('click', () => {
-    navbarToggle()
-})
-
-
-$('main').bind('click touchstart', () => {
-    if ($(".header-contents").hasClass('nav-show')) {
-        navbarToggle()
+  <script>
+    /* NAVBAR TOGGLE */
+    function navbarToggle() {
+      // console.log('nav toggle');
+      $('.header-contents').toggleClass('nav-show')
+      $('.header-contents').toggleClass('list-show')
+      $('.header-contents').toggleClass('nav-hide')
+      $('.header-contents').toggleClass('list-hide')
+      $('.header-nav-toggle').toggleClass('rotateDiv')
     }
-})
 
-$('.header-contents li a').on('click', () => {
-    navbarToggle()
-    //
-})
+    $('.header-nav-toggle').on('click', () => {
+      navbarToggle()
+    })
 
 
-</script>
+    $('main').bind('click touchstart', () => {
+      if ($(".header-contents").hasClass('nav-show')) {
+        navbarToggle()
+      }
+    })
+
+    $('.header-contents li a').on('click', () => {
+      navbarToggle()
+      //
+    })
+
+
+  </script>
 
 
 
@@ -94,43 +94,43 @@ $('.header-contents li a').on('click', () => {
       </div>
     </div>
 
-        <script>
-    //ANIMATED TEXT
+    <script>
+      //ANIMATED TEXT
 
 
-    const nameMoving = ['Student','Tutor','Astrophile']
-    let vari_i = 0
-    let vari_j = 0
-    let text = ''
-    let fore = true
+      const nameMoving = ['Student', 'Tutor', 'Astrophile']
+      let vari_i = 0
+      let vari_j = 0
+      let text = ''
+      let fore = true
 
-    setInterval(() => {
-      if (vari_j > nameMoving.length - 1) {
-        vari_j = 0
-      }
-      names = nameMoving[vari_j] +" "
-      // console.log('j',j)
-      if (fore) {
-        text += names[vari_i]
-        vari_i++
-        console.log(vari_i)
-        if (vari_i > names.length - 1) {
-          fore = false
+      setInterval(() => {
+        if (vari_j > nameMoving.length - 1) {
+          vari_j = 0
         }
-      } else if (!fore) {
-        text = text.substring(0, text.length - 1)
-        vari_i--
-        // console.log(i)
-        if (vari_i <= 0) {
-          fore = true
-          text = ''
-          vari_j++
+        names = nameMoving[vari_j] + " "
+        // console.log('j',j)
+        if (fore) {
+          text += names[vari_i]
+          vari_i++
+          // console.log(vari_i)
+          if (vari_i > names.length - 1) {
+            fore = false
+          }
+        } else if (!fore) {
+          text = text.substring(0, text.length - 1)
+          vari_i--
+          // console.log(i)
+          if (vari_i <= 0) {
+            fore = true
+            text = ''
+            vari_j++
+          }
+          // console.log(text)
         }
-        // console.log(text)
-      }
-      $('.moving-text').text(text)
-    }, 150)
-  </script>
+        $('.moving-text').text(text)
+      }, 150)
+    </script>
 
     <!-- ABOUT -->
 
@@ -363,11 +363,12 @@ $('.header-contents li a').on('click', () => {
     <div class="contact-title section-title">CONTACT</div>
     <div class="contact f-c">
 
-      <form class="contact-form f-c" action="https://formsubmit.co/livingasrb007@email.com" method="post">
+      <p class="warn"></p>
+      <form class="contact-form f-c">
         <input class="n" type="text" placeholder="your name" name="name" required>
         <input class="e" type="text" placeholder="your email" name="email" required>
         <textarea class="m" type="text" placeholder="Message" class="textarea f-c" name="message" required></textarea>
-        <input class="send f-c" type="button" value="send">
+        <button class="send f-c" type="submit">send</button>
       </form>
 
       <div class="contact-right f-c">
@@ -384,15 +385,76 @@ $('.header-contents li a').on('click', () => {
       </div>
     </div>
 
-    <!-- <script>
-        & ('.send').on('click', () => {
-          $('.n').value('')
-          $('.e').value('')
-          $('.m').value('')
-            & ('.send').value('')
-          console.log($('.m').value())
-        })
-    </script> -->
+    <script>
+
+      $('.warn').css({ 'display': 'none' })
+
+      $('.send').on('click', (e) => {
+        e.preventDefault()
+
+        const name = $('.n').val()
+        const email = $('.e').val()
+        const message = $('.m').val()
+
+        // ggetting the values from the input field,also checking if input is valid or not
+        if (message && email) {
+          const payload = {
+            name: name,
+            emai: email,
+            message: message
+          }
+          console.log(payload)
+
+          // const payload = {
+          //   name: 'John Doe',
+          //   email: 'johndoe@example.com',
+          //   message: 'This is a test message'
+          // };
+
+          // making a request to the backend server 
+          fetch('https://expense-server.adaptable.app/rajwebfeedback', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          })
+            .then(response => {
+              if (response.ok) {
+                // displaying success message
+                $('.warn').css({ 'display': 'block', 'color': 'green' })
+                $('.warn').text('Feedback sent successfully!')
+
+                // clearing the input
+                $('.n').val('')
+                $('.e').val('')
+                $('.m').val('')
+              } else {
+                console.error('Failed to send feedback:', response.status, response.statusText);
+                $('.warn').css({ 'display': 'block', 'color': 'red' })
+                $('.warn').text('email & message are required fields')
+              }
+            })
+            .catch(error => {
+              console.error('An error occurred while sending feedback:', error);
+              $('.warn').css({ 'display': 'block', 'color': 'red' })
+              $('.warn').text('email & message are required fields')
+            });
+
+        } else {
+          // if inpy=ur is not valid then  displaing the warning message
+          $('.warn').css({ 'display': 'block', 'color': 'red' })
+          $('.warn').text('email & message are required fields')
+        }
+
+        // /removing the input warning
+        setTimeout(() => {
+          $('.warn').css({ 'display': 'none' })
+        }, 3000);
+
+
+      })
+    </script>
 
     <!-- FOOTER -->
 
